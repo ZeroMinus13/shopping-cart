@@ -1,7 +1,7 @@
 function Home() {
   return (
     <div className="home">
-      <h1>Home</h1>
+      <h1>Home </h1>
       <p className="text">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu consectetur nunc. Nam
         arcu arcu, malesuada et tempus quis, malesuada id arcu. Maecenas eget malesuada est. Nam
@@ -16,5 +16,4 @@ function Home() {
     </div>
   );
 }
-
 export default Home;

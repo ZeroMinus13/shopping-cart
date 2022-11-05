@@ -50,7 +50,8 @@ nav .active {
   background-size: cover;
   height: 100%;
 }
-.shop {
+.shop,
+.cart {
   padding: 20px;
 }
 
@@ -58,18 +59,40 @@ nav .active {
   width: 40%;
   font-size: 1.1rem;
 }
+.itemsCard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+li {
+  text-decoration: none;
+  list-style: none;
+  text-align: center;
+}
 
-.cart {
-  border: 2px solid black;
+.itemsCard > li > img,
+.cart > ul > li > img {
+  max-width: 30vw;
+  max-height: 30vh;
 }
 .amount {
-  width: 30px;
+  width: 40px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
 }
 button {
-  width: 20px;
+  padding: 1px 5px;
 }
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+.buy {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+}
+.cartText {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva,
+    Verdana, sans-serif;
+  font-weight: bold;
 }
