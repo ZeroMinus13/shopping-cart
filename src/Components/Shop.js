@@ -1,4 +1,4 @@
-function Shop({ shopping }) {
+function Shop({ shopping, item }) {
   return (
     <div className="shop">
       <h1>Shop</h1>

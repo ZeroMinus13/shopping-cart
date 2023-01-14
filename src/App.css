@@ -89,6 +89,7 @@ button {
   background-color: #0ea5e9;
   border: none;
   font-size: 1rem;
+  border-radius: 15px;
 }
 button:hover {
   background-color: skyblue;
@@ -111,4 +112,11 @@ img {
 
 .addnsub {
   font-size: 18px;
+}
+.center > input {
+  margin: 0 auto;
+  height: 30px;
+}
+.searchInput {
+  min-width: 500px;
 }

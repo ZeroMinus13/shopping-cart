@@ -10,7 +10,13 @@ import { useState } from 'react';
 function App() {
   const [item, setItem] = useState(items);
   const [cart, setCart] = useState([]);
-
+  const [filter, setFilter] = useState('');
+  const filteredItems = item.filter((items) =>
+    items.name.toLowerCase().includes(filter.toLowerCase())
+  );
+  function handleFilterChange(e) {
+    setFilter(e.target.value.toLowerCase());
+  }
   function addtoCart(product) {
     if (cart.some((cartItem) => cartItem.id === product.id)) {
       setCart((cart) =>
@@ -29,16 +35,24 @@ function App() {
   }
 
   function shopping() {
-    return item.map((product, index) => (
-      <li key={index}>
-        <h2>{product.name}</h2>
-        <img src={`${product.image}`} alt={product.name} />
-        <div>
-          <p>$ {product.price}</p>
-          <button onClick={(e) => addtoCart(product)}>Add to Cart </button>
-        </div>
-      </li>
-    ));
+    return (
+      <div className="center">
+        <label htmlFor="">Search</label> <br />
+        <input onChange={(e) => handleFilterChange(e)} className="searchInput" />
+        <ul className="itemsCard">
+          {filteredItems.map((product, index) => (
+            <li key={index}>
+              <h2>{product.name}</h2>
+              <img src={`${product.image}`} alt={product.name} />
+              <div>
+                <p>$ {product.price}</p>
+                <button onClick={(e) => addtoCart(product)}>Add to Cart </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
   }
   function cartRender() {
     return cart.map((product, i) => {
@@ -95,7 +109,7 @@ function App() {
       <NavBar products={cart} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/shop" element={<Shop shopping={shopping()} />} />
+        <Route path="/shop" element={<Shop shopping={shopping()} item={item} />} />
         <Route path="/cart" element={<Cart cartRender={cartRender} />} />
         <Route path="*" element={<Home />} />
       </Routes>
