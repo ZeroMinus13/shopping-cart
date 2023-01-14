@@ -50,11 +50,15 @@ function App() {
             <li key={i}>
               <h2>{product.name}</h2>
               <img src={`${product.image}`} alt={product.name} />
-              <p>$ {product.price}</p>
+              <p>${product.price}</p>
               <div className="container">
-                <button onClick={() => increment(product)}>+</button>
+                <button onClick={() => increment(product)} className="addnsub">
+                  +
+                </button>
                 <p>Amount: {product.amount}</p>
-                <button onClick={() => decrement(product)}>-</button>
+                <button onClick={() => decrement(product)} className="addnsub">
+                  -
+                </button>
               </div>
             </li>
           </>
@@ -78,7 +82,7 @@ function App() {
     setCart(
       cart.map((prev) => {
         if (prev.id === product.id) {
-          return { ...prev, amount: prev.amount - 1 };
+          return prev.amount > 1 ? { ...prev, amount: prev.amount - 1 } : prev;
         } else {
           return prev;
         }

@@ -6,7 +6,7 @@ const Cart = ({ cartRender }) => {
     <div className="cart">
       <h1 className="Cart">Cart</h1>
       <ul className="itemsCard">{cartRender()}</ul>
-      <button className="buy">Buy Items</button>
+      {/* <button className="buy">Buy Items</button> */}
     </div>
   );
 };
